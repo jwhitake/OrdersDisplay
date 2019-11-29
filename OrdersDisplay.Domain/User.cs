@@ -17,7 +17,7 @@ namespace OrdersDisplay.Domain
         public string Password { get; set; }
         [Required]
         [MaxLength(256)]
-        public string Salt { get; set; }
+        private string Salt { get; set; }
         [Required]
         [MaxLength(500)]
         public string FirstName { get; set; }
@@ -28,5 +28,16 @@ namespace OrdersDisplay.Domain
         [MaxLength(100)]
         public string Email { get; set; }
 
+
+        public User SetUserSalt(string salt)
+        {
+            this.Salt = salt;
+            return this;
+        }
+
+        public string GetSaltProperty()
+        {
+            return Salt;
+        }
     }
 }

@@ -86,7 +86,8 @@ namespace OrderDisplay.Api.Controllers
             //Hash Password
             user.Password = Cipher.HashPassword(user.Password, salt);
             //Encrypt and store user's unique salt
-            user.Salt = Cipher.Encrypt(Convert.ToBase64String(salt));            
+            var encryptedSalt = Cipher.Encrypt(Convert.ToBase64String(salt));
+            user = user.SetUserSalt(encryptedSalt);
             
             _context.Users.Add(user);
             await _context.SaveChangesAsync();

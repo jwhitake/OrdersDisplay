@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\OrderDisplay.Core\OrderDisplay.Core.csproj" />
     <ProjectReference Include="..\OrderDisplay.Data\OrderDisplay.Data.csproj" />
     <ProjectReference Include="..\OrdersDisplay.Domain\OrdersDisplay.Domain.csproj" />
   </ItemGroup>
