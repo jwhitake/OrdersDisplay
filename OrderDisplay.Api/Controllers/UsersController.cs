@@ -82,17 +82,30 @@ namespace OrderDisplay.Api.Controllers
         public async Task<ActionResult<User>> PostUser(User user)
         {
             //Get salt to Hash password
-            byte[] salt = Cipher.GetSalt();
+            //byte[] salt = Cipher.GetSalt();
             //Hash Password
-            user.Password = Cipher.HashPassword(user.Password, salt);
+            //user.SetUserPassword(Cipher.HashPassword(user.Password, salt));
             //Encrypt and store user's unique salt
-            var encryptedSalt = Cipher.Encrypt(Convert.ToBase64String(salt));
-            user = user.SetUserSalt(encryptedSalt);
-            
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
+            //var encryptedSalt = Cipher.Encrypt(Convert.ToBase64String(salt));
+            //user = user.SetUserSalt(encryptedSalt);
+            try
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return Content(JsonError(new Dictionary<string, string>()
+                    {
+                        {"err", ex.InnerException.ToString()}
+                    }), "application/json; charset=utf-8");
+            }
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
+        }
+
+        private string JsonError(Dictionary<string, string> dictionary)
+        {
+            throw new NotImplementedException();
         }
 
         // DELETE: api/Users/5

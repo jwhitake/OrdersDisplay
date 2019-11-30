@@ -1,0 +1,12 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "ConnectionString": "Server=(local);Database=CustomerOrders;Trusted_Connection=True",
+  "ApiUrl": "https://localhost:44371",
+  "AllowedHosts": "*"
+}

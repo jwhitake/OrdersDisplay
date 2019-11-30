@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
@@ -25,6 +26,10 @@ namespace OrdersDisplay.Domain
         public string Tracking { get; set; }
         [MaxLength(150)]
         public string PointOfContact { get; set; }
+
+
+        public override string ToString() => JsonConvert.SerializeObject(this);
+
 
         //public IEnumerable<Order> Orders { get; set; }
 

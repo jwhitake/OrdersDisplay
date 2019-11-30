@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrdersDisplay.Domain", "Ord
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderDisplay.Api", "OrderDisplay.Api\OrderDisplay.Api.csproj", "{E1D0A99F-CD24-49B9-B76C-C367BA34C156}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderDisplay.Core", "OrderDisplay.Core\OrderDisplay.Core.csproj", "{017A2EC5-F5D1-49EF-BCB7-5D383AF28C70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderDisplay.Core", "OrderDisplay.Core\OrderDisplay.Core.csproj", "{017A2EC5-F5D1-49EF-BCB7-5D383AF28C70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{A3EB3758-BC3F-447A-B462-26C2E1EFDC2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{A3EB3758-BC3F-447A-B462-26C2E1EFDC2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderDisplay.CustomerUI", "OrderDisplay.CustomerUI\OrderDisplay.CustomerUI.csproj", "{7C19DC7F-FCDB-42F1-8FCA-ADAB7B078562}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A3EB3758-BC3F-447A-B462-26C2E1EFDC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3EB3758-BC3F-447A-B462-26C2E1EFDC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3EB3758-BC3F-447A-B462-26C2E1EFDC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C19DC7F-FCDB-42F1-8FCA-ADAB7B078562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C19DC7F-FCDB-42F1-8FCA-ADAB7B078562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C19DC7F-FCDB-42F1-8FCA-ADAB7B078562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C19DC7F-FCDB-42F1-8FCA-ADAB7B078562}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

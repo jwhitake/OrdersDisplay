@@ -11,23 +11,24 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using OrderDisplay.Core;
 using OrderDisplay.Data;
 
 namespace OrderDisplay.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup()
         {
-            Configuration = configuration;
+            Configuration = new Configuration();
         }
 
-        public IConfiguration Configuration { get; }
+        public Configuration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<OrdersDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+            services.AddDbContext<OrdersDbContext>(options => options.UseSqlServer(Configuration.ConnectionString));
             services.AddControllers();
         }
 

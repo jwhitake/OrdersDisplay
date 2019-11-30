@@ -6,6 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OrderDisplay.Api\OrderDisplay.Api.csproj" />
+    <ProjectReference Include="..\OrderDisplay.Core\OrderDisplay.Core.csproj" />
+    <ProjectReference Include="..\OrderDisplay.CustomerUI\OrderDisplay.CustomerUI.csproj" />
+    <ProjectReference Include="..\OrderDisplay.Data\OrderDisplay.Data.csproj" />
     <ProjectReference Include="..\OrdersDisplay.Domain\OrdersDisplay.Domain.csproj" />
   </ItemGroup>
 
