@@ -79,25 +79,37 @@ namespace OrderDisplay.Api.Controllers
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<Order>> PostOrder(Order order)
-        {
-            _context.Orders.Add(order);
+        {            
             try
             {
+                _context.Orders.Add(order);
                 await _context.SaveChangesAsync();
             }
-            catch (DbUpdateException)
+            catch (Exception ex)
             {
-                if (OrderExists(order.PurchaseOrderId))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
+                return Content(JsonError(new Dictionary<string, string>()
+                    {
+                        {"err", ex.InnerException.ToString()}
+                    }), "application/json; charset=utf-8");
             }
+            //catch (DbUpdateException)
+            //{
+            //    if (OrderExists(order.PurchaseOrderId))
+            //    {
+            //        return Conflict();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
             return CreatedAtAction("GetOrder", new { id = order.PurchaseOrderId }, order);
+        }
+
+        private string JsonError(Dictionary<string, string> dictionary)
+        {
+            throw new NotImplementedException();
         }
 
         // DELETE: api/Orders/5

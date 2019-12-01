@@ -4,12 +4,68 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+
+<div class="container">
+    <br />
+    <div style="width:90%; margin:0 auto;">
+        <table id="Orders" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>PurchaseOrderId</th>
+                    <th>OrderDate</th>
+                    <th>Sequence</th>
+                    <th>Quantity</th>
+                    <th>TapeType</th>
+                    <th>InternalOrderId </th>
+                    <th>Location</th>
+                    <th>EstimatedDeliveryDate</th>
+                    <th>Tracking</th>
+                    <th>PointOfContact</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 </div>
 
-@foreach (var user in Model.users)
-{
-    <h2>@user.FirstName  @user.LastName </h2>
-}
+
+<script>
+    <script type="text/javascript">
+        function datatable() {
+            $.ajax({
+                type: "Post",
+                url: "//localhost:44371/api/Users",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    $('#sample_1').DataTable({
+                        "aaData": JSON.parse(data.d),
+                        "columns": [{ "data": "PurchaseOrderId" },
+                            { "data": "OrderDate" },
+                            { "data": "Sequence" },
+                            { "data": "Quantity" },
+                            { "data": "TapeType" },
+                            { "data": "InternalOrderId" },
+                            { "data": "Location" },
+                            { "data": "EstimatedDeliveryDate" },
+                            { "data": "Tracking" },
+                            { "data": "PointOfContact" }]
+                    });
+
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            })
+        }
+</script>
+</script>
+
